@@ -1,22 +1,31 @@
-// 2. /src/app/page.tsx
+// 2. /src/app/page.tsx (UPDATED for Cinematic Style)
 
-"use client"; // Needs to be client-side to use the custom hook
+"use client"; 
 
 import React from 'react';
 import { useAudio } from '../context/AudioContext';
 import { EnterWorldButton } from '../components/EnterWorldButton';
+import novelData from '../../../data/novel-data.json'; // Import your novel data
 
 // --- Placeholder for your cinematic visual content ---
 const MainContent = () => {
     return (
-        // *****************************************************************
-        // THIS IS WHERE YOUR CINEMATIC NOVEL PREVIEW CONTENT GOES
-        // (Parallax backgrounds, high-res synopsis, chapter index, etc.)
-        // *****************************************************************
-        <div style={{ padding: '50px', textAlign: 'center' }}>
-            <h1>Welcome to The God's Rank Awakening</h1>
-            <p>A new era begins. Scroll down to start Chapter I...</p>
-            {/* The actual cinematic visuals and chapter index links go here */}
+        <div className="main-content-area">
+            <h1>The God's Rank Awakening</h1>
+            <p style={{ color: 'var(--color-secondary-text)', fontSize: '1.2rem', marginBottom: '30px' }}>
+                {novelData.synopsis}
+            </p>
+            
+            <h2 style={{ color: 'white', borderBottom: '1px solid var(--color-accent)', paddingBottom: '10px' }}>
+                Start Your Journey
+            </h2>
+            
+            {/* You would build your Chapter Index links here */}
+            <p style={{ marginTop: '20px' }}>
+                <a href="/chapters/the-first-spark" style={{ color: 'lightblue', fontWeight: 'bold' }}>
+                    Continue to Chapter I &rarr;
+                </a>
+            </p>
         </div>
     );
 };
@@ -24,40 +33,28 @@ const MainContent = () => {
 
 
 export default function HomePage() {
-    // Get the state that tracks if the music has been successfully started
     const { isMusicPlaying } = useAudio();
-
-    // While your app is hydrating (setting up the initial state), you might show a loader
     const [isLoading, setIsLoading] = React.useState(true);
 
     React.useEffect(() => {
-        // Simple delay to prevent flashing or awkward loading
         const timer = setTimeout(() => setIsLoading(false), 500); 
         return () => clearTimeout(timer);
     }, []);
 
     if (isLoading) {
-        // 1. Initial loading screen
         return <div style={{ minHeight: '100vh', display: 'grid', placeItems: 'center', background: 'black', color: 'white' }}>Loading Cinematic Experience...</div>;
     }
 
     return (
-        <div className="homepage-container">
+        <div className="homepage-container"> {/* <--- NEW CLASS ADDED HERE */}
             {isMusicPlaying ? (
-                // 2. If music is playing (or unlocked), show the full cinematic content
+                // 2. Full cinematic content view
                 <MainContent />
             ) : (
-                // 3. If music is NOT playing (due to mobile block), show the button
-                <div style={{ 
-                    minHeight: '100vh', 
-                    display: 'grid', 
-                    placeItems: 'center', 
-                    background: '#111', // Dark, cinematic background
-                    color: 'white'
-                }}>
-                    {/* The critical button that unlocks the mobile audio stream */}
+                // 3. Landing page gate (The dark screen with the button)
+                <div className="landing-page-gate"> {/* <--- NEW CLASS ADDED HERE */}
                     <EnterWorldButton />
-                    <p style={{ marginTop: '20px', color: '#888' }}>
+                    <p style={{ marginTop: '20px', color: '#aaa' }}>
                         * Tap to begin the experience and load the background score.
                     </p>
                 </div>
