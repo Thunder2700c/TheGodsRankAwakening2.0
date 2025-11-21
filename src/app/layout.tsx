@@ -1,9 +1,10 @@
-// 1. /src/app/layout.tsx (UPDATED)
+// 1. /src/app/layout.tsx (FINAL STRUCTURE)
 
 import type { Metadata } from 'next';
 import './globals.css'; 
 import { AudioProvider } from '../context/AudioContext';
-import { MusicPlayer } from '../components/MusicPlayer'; // <-- IMPORT THE NEW COMPONENT
+import { MusicPlayer } from '../components/MusicPlayer';
+import { NavHeader } from '../components/NavHeader'; // <-- IMPORT THE NEW COMPONENT
 
 export const metadata: Metadata = {
   title: 'The God\'s Rank Awakening 2.0 - Cinematic Novel Hub',
@@ -20,17 +21,14 @@ export default function RootLayout({
       <body>
         <AudioProvider>
           <main>
+            {/* PERSISTENT COMPONENT: Header */}
+            <NavHeader /> 
+
             {/* The main content of the current page (Hub or Chapter) */}
             {children}
             
-            {/* PERSISTENT COMPONENT: 
-              This MusicPlayer will stay mounted and visible on every single page
-              because it is placed inside the RootLayout.
-            */}
+            {/* PERSISTENT COMPONENT: Music Player Control */}
             <MusicPlayer /> 
-
-            {/* If you had a persistent NavHeader, it would also go here */}
-            {/* <NavHeader /> */} 
           </main>
         </AudioProvider>
       </body>
