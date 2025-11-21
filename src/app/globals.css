@@ -88,3 +88,45 @@ a:hover {
     /* Improve readability for large blocks of text */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
 }
+/* ADDED STYLES FOR CINEMATIC LOOK */
+
+/* 1. Full-Screen Background Image for Main Page */
+.homepage-container {
+  /* Ensure the container covers the entire viewport */
+  min-height: 100vh;
+  /* Use a high-resolution, dark image from your assets */
+  background-image: url("/images/main-background.webp"); /* CHANGE THIS PATH */
+  background-size: cover;
+  background-position: center;
+  /* Dark overlay for contrast */
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); 
+}
+
+/* 2. Styling the Landing Page Container (Before Enter Button Click) */
+.landing-page-gate {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 3. Styling for the Main Content Area (After Enter Button Click) */
+.main-content-area {
+    /* Use a semi-transparent dark container for the text to sit on */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    margin: 50px 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+.main-content-area h1 {
+    font-size: 3.5rem;
+    color: var(--color-accent);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
