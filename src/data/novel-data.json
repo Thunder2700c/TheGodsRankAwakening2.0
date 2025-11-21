@@ -1,0 +1,28 @@
+{
+  "novelTitle": "The God's Rank Awakening",
+  "themeMusicUrl": "/audio/theme-song.mp3",
+  "synopsis": "A thousand years after the Great Collapse, the world of Aerth is governed by the rigid hierarchy of Ranks, granted by the mysterious and silent Gods. When a low-ranked peasant, Kael, experiences a sudden, violent awakening of a forgotten power, he is thrust into a conspiracy that threatens to shatter the divine order and reveal the truth behind the Gods' silence.",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Chapter I: The First Spark",
+      "slug": "the-first-spark",
+      "imageAsset": "/images/chapter1-spark.webp",
+      "content": "The wind howled across the barren plains of the Scar, a fitting soundtrack to Kael's miserable existence. His Rank, a pathetic 'F-1,' branded him for life. He was hauling ore when the earth trembled—not from a quake, but from an energy pulse. A shard of black stone, pulsating with an unseen light, buried itself in his hand. The pain was secondary to the sheer, terrifying *power* that instantly dissolved his F-Rank and screamed a new, utterly unknown sigil into his soul: the 'Awakened' mark. He was no longer a peasant; he was a target."
+    },
+    {
+      "id": 2,
+      "title": "Chapter II: Whispers in the Citadel",
+      "slug": "whispers-in-the-citadel",
+      "imageAsset": "/images/chapter2-citadel.webp",
+      "content": "Kael fled to the bustling, towering Citadel, seeking refuge in the shadow of the High Ranks. The power felt like a fever, unpredictable and volatile. He learned quickly that the 'Awakened' were not spoken of in civil society—they were hunted. A chance encounter with the enigmatic Rank S agent, Lyra, led to an uneasy alliance. She promised protection, but demanded the shard in return. The Citadel walls, meant for safety, felt more like a cage, and the whispers of a coming, cosmic storm grew louder."
+    },
+    {
+      "id": 3,
+      "title": "Chapter III: The Shattered Glyph",
+      "slug": "the-shattered-glyph",
+      "imageAsset": "/images/chapter3-glyph.webp",
+      "content": "In the hidden underbelly of the Citadel, Kael and Lyra discovered an ancient glyph—a map detailing not Ranks, but the pathways the Gods took to arrive. However, the glyph was shattered, missing three key pieces. Kael realized the Gods weren't silent; they were *gone*. His new mission: find the missing pieces, complete the map, and confront the truth of their absence before the remaining High Ranks realize their power source is drying up."
+    }
+  ]
+}
