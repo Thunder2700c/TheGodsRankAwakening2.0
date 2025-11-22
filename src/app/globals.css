@@ -47,7 +47,7 @@ a:hover {
 /* --- HOMEPAGE CONTAINER --- */
 .homepage-container {
   min-height: 100vh;
-  width: 100%;
+  width: 50%;
   background-color: #1a0505; 
   background: linear-gradient(to bottom, rgba(200, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 60%, #000000 100%), url("/images/main-background.webp");
   background-size: cover;
