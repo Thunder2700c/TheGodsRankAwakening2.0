@@ -1,11 +1,12 @@
-// 3. /src/app/chapters/[chapterId]/page.tsx
+// 3. /src/app/chapters/[chapterId]/page.tsx (FIXED FOR VERCEL DEPLOYMENT)
 
 import React from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-// Import all novel data (ideally, this would be a fetch function in a real app)
-import novelData from '../../../data/novel-data.json'; 
+// FIX: Changed '../../../' to '../../' to correctly point to /src/data
+// This resolves the Node.js/fs build error on Vercel.
+import novelData from '../../data/novel-data.json'; 
 
 // Define the expected structure for the page parameters
 interface ChapterPageProps {
