@@ -5,14 +5,16 @@
   margin: 0;
 }
 
-/* --- BASE THEME --- */
+/* --- BASE THEME & CINEMATIC TYPOGRAPHY --- */
 :root {
   --color-dark-background: #0d0d0d;
   --color-text-light: #ffffff;
   --color-accent: #e50000; 
   --color-secondary-text: #aaaaaa;
+  
+  /* NEW CINEMATIC FONTS (Oswald is a great GTA-style substitute) */
   --font-family-primary: 'Arial', sans-serif;
-  --font-family-header: 'Arial Black', sans-serif; 
+  --font-family-header: 'Oswald', 'Impact', 'Arial Black', sans-serif; 
 }
 
 html, body {
@@ -25,13 +27,15 @@ html, body {
   min-height: 100vh;
 }
 
-/* --- TYPOGRAPHY --- */
+/* Base Headings: GTA VI Style Polish */
 h1, h2, h3 {
   font-family: var(--font-family-header);
   color: var(--color-text-light);
   line-height: 1.2;
   margin-bottom: 0.5em;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Subtle red glow shadow */
 }
 
 a {
@@ -42,6 +46,15 @@ a {
 
 a:hover {
   color: var(--color-text-light);
+}
+
+/* --- GTA VI INSPIRED POLISH --- */
+
+/* Text Selection Effect (Like scanning an old monitor) */
+::selection {
+  background: var(--color-accent); 
+  color: var(--color-text-light);
+  text-shadow: none;
 }
 
 /* --- HOMEPAGE CONTAINER --- */
@@ -73,11 +86,11 @@ a:hover {
 }
 
 .main-content-area h1 {
-    font-size: 3.5rem;
+    font-size: 4rem; /* Massive Title */
     color: var(--color-accent);
-    letter-spacing: 5px;
+    letter-spacing: 8px; /* Extra wide spacing */
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.8); /* Stronger glow for the title */
 }
 
 /* --- CHAPTER PAGES --- */
@@ -86,6 +99,8 @@ a:hover {
     max-width: 900px; 
     margin: 0 auto; 
     color: var(--color-secondary-text);
+    /* MOBILE BUG FIX: Ensures content starts below the fixed NavHeader */
+    padding-top: 100px; 
 }
 
 .chapter-page-container h1 {
@@ -110,6 +125,7 @@ a:hover {
     font-weight: 900; 
     color: var(--color-accent); 
     letter-spacing: 3px;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
 
 .nav-header .nav-link {
@@ -151,6 +167,11 @@ a:hover {
   animation: none;
 }
 
+/* Added responsiveness for buttons */
+.cinematic-button:active {
+    transform: scale(0.98);
+}
+
 /* Music Toggle Button */
 .music-toggle-button {
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
@@ -159,4 +180,23 @@ a:hover {
 
 .music-toggle-button:hover {
     background: rgba(229, 0, 0, 0.2);
+}
+/* --- GTA VI Inspired Polish --- */
+
+/* Fix Mobile Overlap */
+.chapter-page-container {
+    /* Set padding top to ensure content starts below the fixed NavHeader */
+    padding-top: 100px; 
+}
+
+/* Subtle Text Selection Effect (Like scanning an old monitor) */
+::selection {
+  background: var(--color-accent); 
+  color: var(--color-text-light);
+  text-shadow: none;
+}
+
+/* Small detail: make the button slightly more responsive */
+.cinematic-button:active {
+    transform: scale(0.98);
 }
