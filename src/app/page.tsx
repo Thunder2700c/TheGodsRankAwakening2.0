@@ -5,7 +5,7 @@
 import React from 'react';
 import { useAudio } from '../context/AudioContext';
 import { EnterWorldButton } from '../components/EnterWorldButton';
-import novelData from '../../../data/novel-data.json'; // Import your novel data
+import novelData from '../data/novel-data.json';
 
 // --- Placeholder for your cinematic visual content ---
 const MainContent = () => {
