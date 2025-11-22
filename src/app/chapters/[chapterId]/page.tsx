@@ -1,11 +1,10 @@
-// 3. /src/app/chapters/[chapterId]/page.tsx (FIXED FOR VERCEL DEPLOYMENT)
+// /src/app/chapters/[chapterId]/page.tsx - CLEAN VERSION
 
 import React from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-// FIX: Changed '../../../' to '../../' to correctly point to /src/data
-// This resolves the Node.js/fs build error on Vercel.
+// CORRECT FIX: Uses two dots to resolve path for Vercel build
 import novelData from '../../data/novel-data.json'; 
 
 // Define the expected structure for the page parameters
@@ -46,7 +45,7 @@ export default function ChapterPage({ params }: ChapterPageProps) {
   const { prevChapter, nextChapter } = getNavigationLinks(currentChapter.id);
 
   return (
-    <article className="chapter-page-container" style={{ padding: '80px 10%', maxWidth: '900px', margin: '0 auto', color: 'white' }}>
+    <article className="chapter-page-container">
       
       {/* Chapter Title */}
       <h1 style={{ fontSize: '2.5rem', borderBottom: '2px solid darkred', paddingBottom: '10px' }}>
@@ -54,7 +53,6 @@ export default function ChapterPage({ params }: ChapterPageProps) {
       </h1>
       
       {/* Chapter Image/Art */}
-      {/* In a real app, you would use Next's Image component here for optimization */}
       <div 
         style={{ 
           height: '400px', 
@@ -94,8 +92,7 @@ export default function ChapterPage({ params }: ChapterPageProps) {
 }
 
 
-// --- REQUIRED NEXT.JS FUNCTION FOR STATIC GENERATION (Highly Recommended for SEO) ---
-// This tells Next.js which chapter URLs to pre-build during the build process.
+// --- REQUIRED NEXT.JS FUNCTION FOR STATIC GENERATION ---
 export async function generateStaticParams() {
     return novelData.chapters.map(chapter => ({
         chapterId: chapter.slug,
