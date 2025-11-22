@@ -52,15 +52,15 @@ export default function ChapterPage({ params }: ChapterPageProps) {
         {currentChapter.title}
       </h1>
       
-      {/* Chapter Image/Art */}
+      // NEW IMAGE BLOCK (paste this in its place)
+      {/* Chapter Image/Art with Dynamic Effect */}
       <div 
+        className="chapter-image-dynamic" // <-- NEW CLASS ADDED
         style={{ 
           height: '400px', 
           backgroundImage: `url(${currentChapter.imageAsset})`, 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center', 
           margin: '30px 0',
-          boxShadow: '0 0 15px rgba(0, 0, 0, 0.5)'
+          boxShadow: '0 0 25px rgba(0, 0, 0, 0.7)' // Enhanced shadow
         }}
       />
 
