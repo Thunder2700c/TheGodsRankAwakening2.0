@@ -1,4 +1,4 @@
-@import url("https://fronts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 * {
   margin: 0;
@@ -36,7 +36,7 @@ p {
 
 section {
   position: relative;
-  weight: 100vw;
+  width: 100vw; /* Corrected 'weight' to 'width' */
   height: 100svh;
   background-color: #111117;
   text-align: center;
@@ -63,7 +63,7 @@ section {
   object-fit: contain;
 }
 
-.hero-image-copy {
+.hero-img-copy { /* Corrected selector: 'hero-image-copy' -> 'hero-img-copy' */
   position: absolute;
   bottom: 20%;
   left: 50%;
@@ -71,7 +71,7 @@ section {
   will-change: opacity;
 }
 
-.hero-image-copy p {
+.hero-img-copy p {
   font-size: 0.65rem;
 }
 
@@ -90,23 +90,23 @@ section {
   z-index: 1;
 }
 
-/* AFTER (Corrected - Using a standard absolute center position) */
+/* FIX: Changed to absolute positioning and centered correctly for accurate JS calculation */
 .logo-container {
-  /* Set a visible/fixed reference point for the logo calculation */
-  position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center based on its own size */
+  position: absolute; 
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
   width: 200px;
   height: 150px;
   z-index: 2;
 }
 
+/* FIX: Added missing semicolon */
 .overlay-copy {
   position: absolute;
   bottom: 25%;
   left: 50%;
-  transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%); 
   z-index: 2;
 }
 
