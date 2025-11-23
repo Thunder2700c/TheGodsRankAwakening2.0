@@ -43,5 +43,13 @@ const logoVerticalPosition =
   (logoDimensions.height - logoBoundingBox. height * logoScaleFactor) / 2 -
   logoBoundingBox.y * logoScaleFactor;
 
-logoMask.setAttribute()
+logoMask.setAttribute(
+  "transform",
+  `translate(${logoHorizontalPosition}, ${logoVerticalPosition}) scale(${logoScaleFactor})` 
+  );
+ScrollTrigger.create({
+  trigger: ".hero",
+  start: "top top",
+  end
+})
 });
