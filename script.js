@@ -1,3 +1,5 @@
+import { logoData } from "./logo.js";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis();
@@ -12,47 +14,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const svgOverlay = document.querySelector(".overlay");
   const overlayCopy = document.querySelector(".overlay-copy h1");
   const logoMask = document.querySelector("#logoMask");
+  const logoContainer = document.querySelector(".logo-container");
 
-  const initialOverlayScale = 350;
+  const initialScale = 400;
 
-  // Apply logo SVG path
-  if (logoMask) {
-    logoMask.setAttribute("d", logoData);
-  }
+  // Apply your real logo path
+  if (logoMask) logoMask.setAttribute("d", logoData);
 
-  gsap.set(svgOverlay, { scale: initialOverlayScale });
-  gsap.set([overlayCopy, fadeOverlay], { opacity: 0 });
+  // Initial states
+  gsap.set(svgOverlay, { scale: initialScale, transformOrigin: "center 15%" });
+  gsap.set([overlayCopy, fadeOverlay, heroImgLogo, heroImgCopy], { opacity: 0 });
 
   ScrollTrigger.create({
     trigger: ".hero",
     start: "top top",
-    end: "500%",
+    end: "+500%",
     pin: true,
     scrub: 1,
     onUpdate: (self) => {
       const p = self.progress;
 
-      // Fade out initial logo + text
-      gsap.set([heroImgLogo, heroImgCopy], { opacity: 1 - p * 6.6 });
+      // 1. Fade out initial logo + text
+      gsap.set([heroImgLogo, heroImgCopy], { opacity: gsap.utils.clamp(0, 1, 1 - p * 5) });
 
-      // Scale hero container
-      gsap.set(heroImgContainer, { scale: 1.5 - 0.5 * Math.min(p / 0.85, 1) });
+      // 2. Zoom in background
+      gsap.set(heroImgContainer, { scale: 1 + p * 0.6 });
 
-      // Scale overlay (reveals black)
-      const overlayScale = initialOverlayScale * Math.pow(1 - Math.min(p / 0.85, 1), 3) + 1;
-      gsap.set(svgOverlay, { scale: overlayScale });
+      // 3. Reveal black overlay with logo shape
+      const scaleVal = initialScale * Math.pow(1 - p, 3) + 1;
+      gsap.set(svgOverlay, { scale: scaleVal });
 
-      // White fade in
-      const whiteProgress = gsap.utils.clamp(0, 1, (p - 0.25) / 0.4);
-      gsap.set(fadeOverlay, { opacity: whiteProgress });
+      // 4. White flash
+      const whiteOpacity = gsap.utils.clamp(0, 1, (p - 0.3) / 0.4);
+      gsap.set(fadeOverlay, { opacity: whiteOpacity });
 
-      // Text reveal
-      if (p > 0.6) {
-        const textProg = gsap.utils.clamp(0, 1, (p - 0.6) / 0.25);
+      // 5. Text reveal from bottom
+      if (p > 0.55) {
+        const textP = (p - 0.55) / 0.35;
         gsap.set(overlayCopy, {
-          opacity: textProg,
-          scale: 1.25 - 0.25 * textProg,
-          backgroundImage: `linear-gradient(to bottom, #fff ${(1 - textProg) * 100}%, #444 100%)`
+            opacity: textP,
+            scale: 1.3 - textP * 0.3,
+            backgroundImage: `linear-gradient(to bottom, #fff ${(1-textP)*120}%, transparent 100%)`,
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
         });
       }
     }
