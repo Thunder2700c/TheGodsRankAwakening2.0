@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TGRA</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- LOADING -->
+  <div id="loader">
+    <div id="sphere"></div>
+
+    <div id="bar-container">
+      <div id="bar"></div>
+    </div>
+
+    <div id="percent">0%</div>
+  </div>
+
+  <!-- BRAND / TERMINAL -->
+  <div id="terminal" class="hidden">
+    <div class="brand">
+      <span>TGRA</span>
+      <span class="cursor">|</span>
+      <span>ra</span>
+    </div>
+
+    <div class="prompt">
+      > enable music? <span class="choice">[y/n]</span>
+    </div>
+  </div>
+
+  <!-- GLOW -->
+  <div id="glow"></div>
+
+  <!-- MAIN SITE -->
+  <div id="main" class="hidden">
+    <h1>Main Site Loaded</h1>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
