@@ -104,12 +104,12 @@
 }
 
 /* ===================================================
-   INTERACTIVE SPHERE
+   INTERACTIVE SPHERE - BIGGER + SPINNING
    =================================================== */
 .sphere-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 350px;
+  height: 350px;
   z-index: 10;
 }
 
@@ -118,8 +118,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
   pointer-events: none;
   z-index: 5;
 }
@@ -129,37 +129,50 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
   transition: transform 0.1s ease-out;
+  animation: sphereFloat 6s ease-in-out infinite;
 }
 
 .sphere:hover {
-  transform: translate(-50%, -50%) scale(1.05);
+  transform: translate(-50%, -50%) scale(1.08);
 }
 
 .sphere:active {
-  transform: translate(-50%, -50%) scale(0.98);
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+@keyframes sphereFloat {
+  0%, 100% { 
+    transform: translate(-50%, -50%) translateY(0); 
+  }
+  50% { 
+    transform: translate(-50%, -50%) translateY(-15px); 
+  }
 }
 
 .sphere-core {
   position: absolute;
-  inset: 20px;
+  inset: 25px;
   border-radius: 50%;
   background: 
     radial-gradient(circle at 30% 30%, 
-      rgba(255, 255, 255, 0.8) 0%, 
-      var(--sphere-color-1) 30%, 
-      var(--sphere-color-2) 60%, 
-      var(--sphere-color-3) 100%
+      rgba(255, 255, 255, 0.9) 0%, 
+      var(--sphere-color-1) 25%, 
+      var(--sphere-color-2) 50%, 
+      var(--sphere-color-3) 75%,
+      #1a1a2e 100%
     );
   box-shadow: 
-    inset 0 0 30px rgba(255, 255, 255, 0.3),
-    inset -5px -5px 20px rgba(0, 0, 0, 0.3);
-  animation: coreRotate 10s linear infinite;
+    inset 0 0 40px rgba(255, 255, 255, 0.4),
+    inset -10px -10px 30px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(102, 126, 234, 0.5),
+    0 0 100px rgba(118, 75, 162, 0.3);
+  animation: coreRotate 8s linear infinite, corePulse 3s ease-in-out infinite;
 }
 
 @keyframes coreRotate {
@@ -167,24 +180,49 @@
   100% { filter: hue-rotate(360deg); }
 }
 
+@keyframes corePulse {
+  0%, 100% { 
+    box-shadow: 
+      inset 0 0 40px rgba(255, 255, 255, 0.4),
+      inset -10px -10px 30px rgba(0, 0, 0, 0.4),
+      0 0 60px rgba(102, 126, 234, 0.5),
+      0 0 100px rgba(118, 75, 162, 0.3);
+  }
+  50% { 
+    box-shadow: 
+      inset 0 0 50px rgba(255, 255, 255, 0.5),
+      inset -10px -10px 30px rgba(0, 0, 0, 0.4),
+      0 0 80px rgba(102, 126, 234, 0.7),
+      0 0 120px rgba(240, 147, 251, 0.4);
+  }
+}
+
 .sphere-glow {
   position: absolute;
-  inset: -20px;
+  inset: -40px;
   border-radius: 50%;
   background: radial-gradient(circle, 
-    rgba(102, 126, 234, 0.4) 0%, 
-    rgba(118, 75, 162, 0.2) 40%, 
+    rgba(102, 126, 234, 0.5) 0%, 
+    rgba(118, 75, 162, 0.3) 30%,
+    rgba(240, 147, 251, 0.2) 50%, 
     transparent 70%
   );
-  filter: blur(20px);
-  animation: glowPulse 3s ease-in-out infinite;
+  filter: blur(30px);
+  animation: glowPulse 3s ease-in-out infinite, glowRotate 12s linear infinite;
 }
 
 @keyframes glowPulse {
   0%, 100% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.2); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 1; }
 }
 
+@keyframes glowRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* SPINNING RINGS - Bigger */
 .sphere-ring {
   position: absolute;
   top: 50%;
@@ -192,40 +230,89 @@
   border-radius: 50%;
   border: 2px solid transparent;
   transform: translate(-50%, -50%);
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .ring-1 {
-  width: 140px;
-  height: 140px;
+  width: 230px;
+  height: 230px;
   border-color: var(--sphere-color-1);
-  animation: ringRotate1 8s linear infinite;
+  border-width: 2px;
+  animation: ringRotate1 6s linear infinite;
+  box-shadow: 
+    0 0 15px var(--sphere-color-1),
+    inset 0 0 15px var(--sphere-color-1);
 }
 
 .ring-2 {
-  width: 160px;
-  height: 160px;
+  width: 270px;
+  height: 270px;
   border-color: var(--sphere-color-2);
   border-style: dashed;
-  animation: ringRotate2 12s linear infinite reverse;
+  border-width: 2px;
+  animation: ringRotate2 10s linear infinite reverse;
+  box-shadow: 
+    0 0 10px var(--sphere-color-2),
+    inset 0 0 10px var(--sphere-color-2);
 }
 
 .ring-3 {
-  width: 180px;
-  height: 180px;
+  width: 310px;
+  height: 310px;
   border-color: var(--sphere-color-3);
   border-width: 1px;
-  animation: ringRotate1 15s linear infinite;
+  border-style: dotted;
+  animation: ringRotate3 15s linear infinite;
+  box-shadow: 
+    0 0 8px var(--sphere-color-3),
+    inset 0 0 8px var(--sphere-color-3);
 }
 
 @keyframes ringRotate1 {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+  0% { transform: translate(-50%, -50%) rotateZ(0deg) rotateX(70deg); }
+  100% { transform: translate(-50%, -50%) rotateZ(360deg) rotateX(70deg); }
 }
 
 @keyframes ringRotate2 {
-  0% { transform: translate(-50%, -50%) rotateX(60deg) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotateX(60deg) rotate(360deg); }
+  0% { transform: translate(-50%, -50%) rotateZ(0deg) rotateY(70deg); }
+  100% { transform: translate(-50%, -50%) rotateZ(360deg) rotateY(70deg); }
+}
+
+@keyframes ringRotate3 {
+  0% { transform: translate(-50%, -50%) rotateZ(0deg) rotateX(45deg) rotateY(45deg); }
+  100% { transform: translate(-50%, -50%) rotateZ(360deg) rotateX(45deg) rotateY(45deg); }
+}
+
+/* Extra orbiting particles around sphere */
+.sphere::before,
+.sphere::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--sphere-color-4);
+  box-shadow: 0 0 20px var(--sphere-color-4), 0 0 40px var(--sphere-color-4);
+}
+
+.sphere::before {
+  animation: orbit1 4s linear infinite;
+}
+
+.sphere::after {
+  background: var(--sphere-color-3);
+  box-shadow: 0 0 20px var(--sphere-color-3), 0 0 40px var(--sphere-color-3);
+  animation: orbit2 6s linear infinite reverse;
+}
+
+@keyframes orbit1 {
+  0% { transform: rotate(0deg) translateX(130px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(130px) rotate(-360deg); }
+}
+
+@keyframes orbit2 {
+  0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
 }
 
 /* ===================================================
@@ -655,21 +742,40 @@
 }
 
 /* ===================================================
-   RESPONSIVE
+   RESPONSIVE - Updated for bigger sphere
    =================================================== */
 @media (max-width: 768px) {
+  .sphere-container {
+    width: 280px;
+    height: 280px;
+  }
+  
   .sphere {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
   
   .sphere-core {
-    inset: 15px;
+    inset: 20px;
   }
   
-  .ring-1 { width: 120px; height: 120px; }
-  .ring-2 { width: 135px; height: 135px; }
-  .ring-3 { width: 150px; height: 150px; }
+  .sphere-glow {
+    inset: -30px;
+  }
+  
+  .ring-1 { width: 180px; height: 180px; }
+  .ring-2 { width: 210px; height: 210px; }
+  .ring-3 { width: 240px; height: 240px; }
+  
+  @keyframes orbit1 {
+    0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+  }
+  
+  @keyframes orbit2 {
+    0% { transform: rotate(0deg) translateX(115px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(115px) rotate(-360deg); }
+  }
   
   .progress-percent {
     font-size: 36px;
@@ -686,17 +792,42 @@
   .tgra-logo {
     gap: 15px;
   }
+  
+  #trailCanvas {
+    width: 450px;
+    height: 450px;
+  }
 }
 
 @media (max-width: 480px) {
   .sphere-container {
-    width: 150px;
-    height: 150px;
+    width: 220px;
+    height: 220px;
   }
   
   .sphere {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .ring-1 { width: 145px; height: 145px; }
+  .ring-2 { width: 170px; height: 170px; }
+  .ring-3 { width: 195px; height: 195px; }
+  
+  .sphere::before,
+  .sphere::after {
+    width: 8px;
+    height: 8px;
+  }
+  
+  @keyframes orbit1 {
+    0% { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+  }
+  
+  @keyframes orbit2 {
+    0% { transform: rotate(0deg) translateX(90px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(90px) rotate(-360deg); }
   }
   
   .progress-percent {
@@ -707,4 +838,21 @@
     padding: 15px;
     font-size: 12px;
   }
+  
+  .tgra-logo {
+    font-size: clamp(36px, 10vw, 60px);
+    gap: 12px;
   }
+  
+  #trailCanvas {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .music-toggle-btn {
+    width: 44px;
+    height: 44px;
+    top: 15px;
+    right: 15px;
+  }
+   }
