@@ -1,100 +1,710 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: monospace;
+/* ===================================================
+   TGRA LOADER - Interactive Sphere + Progress Bar
+   Terminal Music Modal + Sun Ray Reveal
+   =================================================== */
+
+/* ===================================================
+   CSS VARIABLES
+   =================================================== */
+:root {
+  --loader-bg: #0a0a0f;
+  --sphere-color-1: #667eea;
+  --sphere-color-2: #764ba2;
+  --sphere-color-3: #f093fb;
+  --sphere-color-4: #00f2fe;
+  --bar-color: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --terminal-bg: #0d1117;
+  --terminal-green: #00ff88;
+  --terminal-text: #c9d1d9;
+  --terminal-dim: #484f58;
 }
 
-body {
-  background: radial-gradient(circle at top, #0a0a0f, #000);
-  color: #caffc7;
-  overflow: hidden;
-}
-
-/* LOADER */
-#loader {
+/* ===================================================
+   MAIN LOADER WRAPPER
+   =================================================== */
+.tgra-loader {
   position: fixed;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#sphere {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #ff00ff, #00ffff);
-  filter: blur(0.5px);
-  margin-bottom: 40px;
-}
-
-#bar-container {
-  width: 60%;
-  height: 6px;
-  background: #222;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-#bar {
-  width: 0%;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #00ffff, #ff00ff);
-}
-
-#percent {
-  margin-top: 12px;
-  font-size: 14px;
-}
-
-/* TERMINAL */
-#terminal {
-  position: fixed;
-  inset: 0;
+  z-index: 99999;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 60px;
+  background: var(--loader-bg);
+  overflow: hidden;
 }
 
-.brand {
-  font-size: 48px;
-  letter-spacing: 4px;
+/* ===================================================
+   ANIMATED BACKGROUND
+   =================================================== */
+.loader-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
 }
 
-.cursor {
-  animation: blink 1s infinite;
-}
-
-.prompt {
-  margin-top: 20px;
-  font-size: 16px;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-/* GLOW */
-#glow {
-  position: fixed;
+.bg-gradient {
+  position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(255,200,120,0.9), transparent 70%);
-  opacity: 0;
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(240, 147, 251, 0.05) 0%, transparent 70%);
+  animation: bgPulse 8s ease-in-out infinite;
+}
+
+@keyframes bgPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(102, 126, 234, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.bg-particles {
+  position: absolute;
+  inset: 0;
   pointer-events: none;
 }
 
-/* MAIN */
-#main {
+.bg-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(102, 126, 234, 0.5);
+  border-radius: 50%;
+  animation: floatParticle 15s linear infinite;
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+}
+
+/* ===================================================
+   INTERACTIVE SPHERE
+   =================================================== */
+.sphere-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  z-index: 10;
+}
+
+#trailCanvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.sphere {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.1s ease-out;
+}
+
+.sphere:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.sphere:active {
+  transform: translate(-50%, -50%) scale(0.98);
+}
+
+.sphere-core {
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(circle at 30% 30%, 
+      rgba(255, 255, 255, 0.8) 0%, 
+      var(--sphere-color-1) 30%, 
+      var(--sphere-color-2) 60%, 
+      var(--sphere-color-3) 100%
+    );
+  box-shadow: 
+    inset 0 0 30px rgba(255, 255, 255, 0.3),
+    inset -5px -5px 20px rgba(0, 0, 0, 0.3);
+  animation: coreRotate 10s linear infinite;
+}
+
+@keyframes coreRotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.sphere-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(102, 126, 234, 0.4) 0%, 
+    rgba(118, 75, 162, 0.2) 40%, 
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+.sphere-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+}
+
+.ring-1 {
+  width: 140px;
+  height: 140px;
+  border-color: var(--sphere-color-1);
+  animation: ringRotate1 8s linear infinite;
+}
+
+.ring-2 {
+  width: 160px;
+  height: 160px;
+  border-color: var(--sphere-color-2);
+  border-style: dashed;
+  animation: ringRotate2 12s linear infinite reverse;
+}
+
+.ring-3 {
+  width: 180px;
+  height: 180px;
+  border-color: var(--sphere-color-3);
+  border-width: 1px;
+  animation: ringRotate1 15s linear infinite;
+}
+
+@keyframes ringRotate1 {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes ringRotate2 {
+  0% { transform: translate(-50%, -50%) rotateX(60deg) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotateX(60deg) rotate(360deg); }
+}
+
+/* ===================================================
+   PROGRESS BAR
+   =================================================== */
+.progress-section {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  position: relative;
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--bar-color);
+  border-radius: 3px;
+  position: relative;
+  transition: width 0.1s ease-out;
+}
+
+.progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px var(--sphere-color-1),
+    0 0 20px var(--sphere-color-2),
+    0 0 30px var(--sphere-color-3);
+}
+
+.progress-bar-glow {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 26px;
+  width: 0%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(102, 126, 234, 0.3) 50%, 
+    rgba(240, 147, 251, 0.3) 100%
+  );
+  filter: blur(10px);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.progress-text {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+.progress-percent {
+  font-size: 48px;
+  font-weight: 200;
+  color: white;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-symbol {
+  font-size: 24px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===================================================
+   TERMINAL MUSIC MODAL
+   =================================================== */
+.terminal-modal {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background: var(--loader-bg);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.terminal-modal.active {
+  visibility: visible;
+}
+
+/* TGRA Logo Split */
+.tgra-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: clamp(48px, 12vw, 80px);
+  font-weight: 700;
+  color: white;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.logo-left, .logo-right {
+  background: linear-gradient(135deg, var(--sphere-color-1), var(--sphere-color-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo-divider {
+  color: var(--terminal-green);
+  font-weight: 200;
+  animation: dividerBlink 1s ease-in-out infinite;
+}
+
+@keyframes dividerBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Terminal Window */
+.terminal-window {
+  width: 90%;
+  max-width: 500px;
+  background: var(--terminal-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #28c840; }
+
+.terminal-title {
+  margin-left: auto;
+  font-family: 'SF Mono', monospace;
+  font-size: 12px;
+  color: var(--terminal-dim);
+}
+
+.terminal-body {
+  padding: 20px;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.terminal-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+}
+
+.terminal-prompt {
+  color: var(--terminal-green);
+  font-weight: bold;
+}
+
+.terminal-text {
+  color: var(--terminal-text);
+}
+
+.terminal-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--terminal-text);
+}
+
+.input-text {
+  color: var(--terminal-dim);
+}
+
+.terminal-btn {
+  background: transparent;
+  border: 1px solid var(--terminal-green);
+  color: var(--terminal-green);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.terminal-btn:hover {
+  background: var(--terminal-green);
+  color: var(--terminal-bg);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.yes-btn:hover {
+  background: #28c840;
+  border-color: #28c840;
+}
+
+.no-btn:hover {
+  background: #ff5f57;
+  border-color: #ff5f57;
+  color: white;
+}
+
+.terminal-cursor {
+  color: var(--terminal-green);
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===================================================
+   SUN RAYS REVEAL
+   =================================================== */
+.sun-reveal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sun-reveal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sun-core {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, 
+    #ffffff 0%, 
+    #fff7e6 30%, 
+    rgba(255, 200, 100, 0.8) 60%, 
+    transparent 100%
+  );
+  border-radius: 50%;
+  z-index: 10;
+  transform: scale(0);
+}
+
+.sun-rays {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200vmax;
+  height: 8px;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 230, 150, 0.6) 20%,
+    rgba(255, 200, 100, 0.3) 50%,
+    transparent 100%
+  );
+  transform-origin: left center;
+  opacity: 0;
+}
+
+.ray-1 { transform: translate(0, -50%) rotate(0deg); }
+.ray-2 { transform: translate(0, -50%) rotate(30deg); }
+.ray-3 { transform: translate(0, -50%) rotate(60deg); }
+.ray-4 { transform: translate(0, -50%) rotate(90deg); }
+.ray-5 { transform: translate(0, -50%) rotate(120deg); }
+.ray-6 { transform: translate(0, -50%) rotate(150deg); }
+.ray-7 { transform: translate(0, -50%) rotate(180deg); }
+.ray-8 { transform: translate(0, -50%) rotate(210deg); }
+.ray-9 { transform: translate(0, -50%) rotate(240deg); }
+.ray-10 { transform: translate(0, -50%) rotate(270deg); }
+.ray-11 { transform: translate(0, -50%) rotate(300deg); }
+.ray-12 { transform: translate(0, -50%) rotate(330deg); }
+
+.sun-flash {
+  position: absolute;
   inset: 0;
+  background: radial-gradient(circle at center, 
+    rgba(255, 250, 240, 1) 0%, 
+    rgba(255, 250, 240, 0.8) 30%,
+    rgba(255, 250, 240, 0.4) 60%,
+    transparent 100%
+  );
+  opacity: 0;
+}
+
+/* ===================================================
+   MUSIC TOGGLE BUTTON
+   =================================================== */
+.music-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(20, 20, 30, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
-.hidden {
-  display: none;
+.music-toggle-btn.visible {
+  opacity: 1;
+  visibility: visible;
 }
+
+.music-toggle-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 
+    0 6px 30px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.music-toggle-btn i {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+}
+
+.music-toggle-btn.playing i {
+  color: var(--terminal-green);
+}
+
+.sound-waves {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.music-toggle-btn.playing .sound-waves {
+  opacity: 1;
+}
+
+.sound-waves span {
+  width: 3px;
+  height: 10px;
+  background: var(--terminal-green);
+  border-radius: 2px;
+  animation: soundWave 0.6s ease-in-out infinite;
+}
+
+.sound-waves span:nth-child(1) { animation-delay: 0s; height: 6px; }
+.sound-waves span:nth-child(2) { animation-delay: 0.1s; height: 10px; }
+.sound-waves span:nth-child(3) { animation-delay: 0.2s; height: 8px; }
+.sound-waves span:nth-child(4) { animation-delay: 0.3s; height: 12px; }
+
+@keyframes soundWave {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1); }
+}
+
+/* ===================================================
+   RESPONSIVE
+   =================================================== */
+@media (max-width: 768px) {
+  .sphere {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .sphere-core {
+    inset: 15px;
+  }
+  
+  .ring-1 { width: 120px; height: 120px; }
+  .ring-2 { width: 135px; height: 135px; }
+  .ring-3 { width: 150px; height: 150px; }
+  
+  .progress-percent {
+    font-size: 36px;
+  }
+  
+  .progress-section {
+    width: 85%;
+  }
+  
+  .terminal-window {
+    width: 95%;
+  }
+  
+  .tgra-logo {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sphere-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .sphere {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .progress-percent {
+    font-size: 32px;
+  }
+  
+  .terminal-body {
+    padding: 15px;
+    font-size: 12px;
+  }
+  }
