@@ -145,6 +145,7 @@ sections.forEach(section => {
   const colors = {
     men: 'rgba(26, 26, 46, 0.9)',
     women: 'rgba(74, 25, 66, 0.9)',
+    unisex: 'rgba(90, 103, 216, 0.9)',
     kids: 'rgba(17, 153, 142, 0.9)'
   };
   
