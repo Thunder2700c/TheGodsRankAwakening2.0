@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css - Deepak Clothing Brand */
 
 * {
   margin: 0;
@@ -17,7 +17,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Navbar */
+/* ================================
+   NAVBAR
+   ================================ */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -29,12 +32,15 @@ body {
   align-items: center;
   z-index: 1000;
   background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+  transition: background 0.5s ease;
 }
 
 .logo {
   font-size: 28px;
   font-weight: bold;
   letter-spacing: 5px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .nav-links {
@@ -56,7 +62,25 @@ body {
   opacity: 0.7;
 }
 
-/* Hero Section */
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+
 .hero {
   height: 100vh;
   position: relative;
@@ -72,7 +96,11 @@ body {
   left: 0;
   width: 100%;
   height: 120%;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background-color: #1a1a2e; /* Fallback color */
+  background-image: url('images/backgrounds/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.5);
   z-index: -1;
 }
 
@@ -97,9 +125,18 @@ body {
   opacity: 0;
 }
 
+/* Scroll Indicator */
 .scroll-indicator {
   margin-top: 50px;
   opacity: 0;
+}
+
+.scroll-indicator p {
+  margin-top: 15px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
 
 .mouse {
@@ -129,7 +166,10 @@ body {
   100% { opacity: 0; top: 30px; }
 }
 
-/* Category Sections */
+/* ================================
+   CATEGORY SECTIONS
+   ================================ */
+
 .category-section {
   min-height: 100vh;
   position: relative;
@@ -141,6 +181,10 @@ body {
   overflow: hidden;
 }
 
+/* ================================
+   SECTION BACKGROUNDS WITH IMAGES
+   ================================ */
+
 .section-bg {
   position: absolute;
   top: 0;
@@ -149,22 +193,33 @@ body {
   height: 120%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   z-index: -2;
   will-change: transform;
 }
 
+/* Men Section - Dark/Bold Wallpaper */
 .men-bg {
-  background: linear-gradient(135deg, #1a1a2e 0%, #2d3436 100%);
+  background-color: #1a1a2e; /* Fallback color */
+  background-image: url('images/backgrounds/men-bg.jpg');
+  filter: brightness(0.7);
 }
 
+/* Women Section - Elegant/Soft Wallpaper */
 .women-bg {
-  background: linear-gradient(135deg, #4a1942 0%, #8e4585 100%);
+  background-color: #4a1942; /* Fallback color */
+  background-image: url('images/backgrounds/women-bg.jpg');
+  filter: brightness(0.6);
 }
 
+/* Kids Section - Colorful/Fun Wallpaper */
 .kids-bg {
-  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  background-color: #11998e; /* Fallback color */
+  background-image: url('images/backgrounds/kids-bg.jpg');
+  filter: brightness(0.7);
 }
 
+/* Dark Overlay for Text Readability */
 .section-overlay {
   position: absolute;
   top: 0;
@@ -174,6 +229,10 @@ body {
   background: rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
+
+/* ================================
+   SECTION HEADER
+   ================================ */
 
 .section-header {
   text-align: center;
@@ -198,7 +257,10 @@ body {
   transform: translateY(30px);
 }
 
-/* Products Container */
+/* ================================
+   PRODUCTS CONTAINER
+   ================================ */
+
 .products-container {
   display: flex;
   gap: 40px;
@@ -207,7 +269,10 @@ body {
   max-width: 1200px;
 }
 
-/* Product Cards */
+/* ================================
+   PRODUCT CARDS
+   ================================ */
+
 .product-card {
   width: 300px;
   background: rgba(255, 255, 255, 0.1);
@@ -217,6 +282,9 @@ body {
   opacity: 0;
   transform: translateY(100px);
   transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: #fff;
+  display: block;
 }
 
 .product-card:hover {
@@ -228,6 +296,7 @@ body {
   width: 100%;
   height: 350px;
   overflow: hidden;
+  position: relative;
 }
 
 .product-image img {
@@ -239,6 +308,40 @@ body {
 
 .product-card:hover .product-image img {
   transform: scale(1.1);
+}
+
+/* Product Overlay - View Details */
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.product-overlay span {
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s;
+}
+
+.product-card:hover .product-overlay span {
+  background: #fff;
+  color: #000;
 }
 
 .product-info {
@@ -260,6 +363,7 @@ body {
   margin-bottom: 20px;
 }
 
+/* WhatsApp Button */
 .whatsapp-btn {
   width: 100%;
   padding: 15px 30px;
@@ -280,7 +384,30 @@ body {
   transform: scale(1.05);
 }
 
-/* Category Indicator */
+/* View All Button */
+.view-all-btn {
+  margin-top: 50px;
+  padding: 15px 40px;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.view-all-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ================================
+   CATEGORY INDICATOR (Right Side)
+   ================================ */
+
 .category-indicator {
   position: fixed;
   right: 50px;
@@ -299,11 +426,106 @@ body {
   transition: all 0.5s;
 }
 
-/* Footer */
+/* ================================
+   CONTACT SECTION
+   ================================ */
+
+.contact-section {
+  padding: 100px 50px;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+}
+
+.contact-section h2 {
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  font-size: 16px;
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.contact-whatsapp-btn {
+  display: inline-block;
+  padding: 20px 50px;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.contact-whatsapp-btn:hover {
+  background: #128c7e;
+  transform: translateY(-5px);
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+
 .footer {
   padding: 50px;
   text-align: center;
   background: #111;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+  font-size: 24px;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  opacity: 0.7;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.footer-social a:hover {
+  opacity: 1;
 }
 
 .social-links {
@@ -324,35 +546,127 @@ body {
   opacity: 1;
 }
 
-/* Mobile Responsive */
+.copyright {
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+/* ================================
+   MOBILE RESPONSIVE
+   ================================ */
+
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 36px;
-    letter-spacing: 5px;
-  }
   
-  .section-title {
-    font-size: 32px;
-  }
-  
-  .products-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .product-card {
-    width: 90%;
-  }
-  
+  /* Navbar */
   .navbar {
     padding: 15px 20px;
   }
   
   .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    padding: 20px;
     gap: 20px;
   }
   
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  /* Hero */
+  .hero-title {
+    font-size: 36px;
+    letter-spacing: 5px;
+  }
+  
+  .hero-subtitle {
+    font-size: 14px;
+    letter-spacing: 4px;
+  }
+  
+  /* Sections */
+  .category-section {
+    padding: 80px 20px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+    letter-spacing: 5px;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+  }
+  
+  /* Products */
+  .products-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .product-card {
+    width: 90%;
+    max-width: 350px;
+  }
+  
+  .product-image {
+    height: 300px;
+  }
+  
+  /* Category Indicator - Hide on Mobile */
   .category-indicator {
     display: none;
   }
+  
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-links,
+  .footer-social {
+    justify-content: center;
+  }
+  
+  /* Contact */
+  .contact-section {
+    padding: 60px 20px;
+  }
+  
+  .contact-section h2 {
+    font-size: 28px;
+  }
 }
+
+@media (max-width: 480px) {
+  
+  .hero-title {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+  
+  .product-card {
+    width: 95%;
+  }
+  
+  .view-all-btn {
+    padding: 12px 30px;
+    font-size: 12px;
+  }
+  }
