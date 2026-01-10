@@ -3,238 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Gods Rank Awakening</title>
-  
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  
-  <meta name="description" content="In 2120 CE, hell portals rip open—Aditya defies Asura King Kanasura. Dive into the multiverse war.">
-  <meta name="keywords" content="web novel, fantasy, action, gods rank awakening, multiverse">
-  <meta name="theme-color" content="#ff6b6b">
-  
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="/loader.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Deepak Clothing Brand</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-  
-<body class="homepage">
+<body>
 
-<!-- ===================================================
-     AUDIO
-     =================================================== -->
-<audio id="themeAudio" loop preload="auto">
-  <source src="assets/audio/theme-song.mp3" type="audio/mpeg">
-</audio>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">DEEPAK</div>
+    <ul class="nav-links">
+      <li><a href="#men">Men</a></li>
+      <li><a href="#women">Women</a></li>
+      <li><a href="#kids">Kids</a></li>
+    </ul>
+  </nav>
 
-<!-- ===================================================
-     SVG FILTERS
-     =================================================== -->
-<svg style="display: none">
-  <defs>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="gooey">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" result="gooey"/>
-    </filter>
-  </defs>
-</svg>
-
-<!-- ===================================================
-     TGRA LOADER - Interactive Sphere + Progress Bar
-     =================================================== -->
-<div class="tgra-loader" id="tgraLoader">
-  
-  <!-- Animated Background -->
-  <div class="loader-bg">
-    <div class="bg-gradient"></div>
-    <div class="bg-grid"></div>
-    <div class="bg-particles" id="bgParticles"></div>
-  </div>
-  
-  <!-- Interactive Sphere -->
-  <div class="sphere-container" id="sphereContainer">
-    <div class="sphere" id="sphere">
-      <div class="sphere-core"></div>
-      <div class="sphere-glow"></div>
-      <div class="sphere-ring ring-1"></div>
-      <div class="sphere-ring ring-2"></div>
-      <div class="sphere-ring ring-3"></div>
-    </div>
-    <!-- RGB Trail particles spawn here -->
-    <canvas id="trailCanvas"></canvas>
-  </div>
-  
-  <!-- Progress Section -->
-  <div class="progress-section" id="progressSection">
-    <div class="progress-bar-container">
-      <div class="progress-bar-track">
-        <div class="progress-bar-fill" id="progressBarFill"></div>
-        <div class="progress-bar-glow" id="progressBarGlow"></div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Style For Everyone</h1>
+      <p class="hero-subtitle">Scroll to Explore</p>
+      <div class="scroll-indicator">
+        <div class="mouse"></div>
       </div>
     </div>
-    <div class="progress-text">
-      <span class="progress-percent" id="progressPercent">0</span>
-      <span class="progress-symbol">%</span>
-    </div>
-  </div>
-  
-</div>
+  </section>
 
-<!-- ===================================================
-     TERMINAL MUSIC MODAL
-     =================================================== -->
-<div class="terminal-modal" id="terminalModal">
-  
-  <!-- Logo Split -->
-  <div class="tgra-logo" id="tgraLogo">
-    <span class="logo-left">TG</span>
-    <span class="logo-divider">|</span>
-    <span class="logo-right">RA</span>
-  </div>
-  
-  <!-- Terminal Window -->
-  <div class="terminal-window" id="terminalWindow">
-    <div class="terminal-header">
-      <span class="terminal-dot red"></span>
-      <span class="terminal-dot yellow"></span>
-      <span class="terminal-dot green"></span>
-      <span class="terminal-title">audio_config.sh</span>
+  <!-- Men Section -->
+  <section class="category-section" id="men" data-category="men">
+    <div class="section-bg men-bg"></div>
+    <div class="section-overlay"></div>
+    
+    <div class="section-header">
+      <h2 class="section-title">Men's Collection</h2>
+      <p class="section-subtitle">Bold & Confident</p>
     </div>
-    <div class="terminal-body">
-      <div class="terminal-line" id="terminalLine1">
-        <span class="terminal-prompt">$</span>
-        <span class="terminal-text"></span>
+
+    <div class="products-container">
+      <div class="product-card" data-product="Men's Black T-Shirt" data-price="599">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/333/fff?text=Black+Tee" alt="Black T-Shirt">
+        </div>
+        <div class="product-info">
+          <h3>Black T-Shirt</h3>
+          <p class="price">₹599</p>
+          <button class="whatsapp-btn">Buy on WhatsApp</button>
+        </div>
       </div>
-      <div class="terminal-line" id="terminalLine2">
-        <span class="terminal-prompt">$</span>
-        <span class="terminal-text"></span>
+
+      <div class="product-card" data-product="Men's Denim Jacket" data-price="1499">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/1a365d/fff?text=Denim+Jacket" alt="Denim Jacket">
+        </div>
+        <div class="product-info">
+          <h3>Denim Jacket</h3>
+          <p class="price">₹1,499</p>
+          <button class="whatsapp-btn">Buy on WhatsApp</button>
+        </div>
       </div>
-      <div class="terminal-line input-line" id="terminalInputLine">
-        <span class="terminal-prompt">$</span>
-        <span class="terminal-input">
-          <span class="input-text">Enable audio? [</span>
-          <button class="terminal-btn yes-btn" id="terminalYes">Y</button>
-          <span class="input-text">/</span>
-          <button class="terminal-btn no-btn" id="terminalNo">N</button>
-          <span class="input-text">]</span>
-        </span>
-        <span class="terminal-cursor">▋</span>
+
+      <div class="product-card" data-product="Men's Casual Shirt" data-price="799">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/2d3748/fff?text=Casual+Shirt" alt="Casual Shirt">
+        </div>
+        <div class="product-info">
+          <h3>Casual Shirt</h3>
+          <p class="price">₹799</p>
+          <button class="whatsapp-btn">Buy on WhatsApp</button>
+        </div>
       </div>
     </div>
-  </div>
-  
-</div>
+  </section>
 
-<!-- ===================================================
-     SUN RAYS REVEAL
-     =================================================== -->
-<div class="sun-reveal" id="sunReveal">
-  <div class="sun-core" id="sunCore"></div>
-  <div class="sun-rays" id="sunRays">
-    <div class="ray ray-1"></div>
-    <div class="ray ray-2"></div>
-    <div class="ray ray-3"></div>
-    <div class="ray ray-4"></div>
-    <div class="ray ray-5"></div>
-    <div class="ray ray-6"></div>
-    <div class="ray ray-7"></div>
-    <div class="ray ray-8"></div>
-    <div class="ray ray-9"></div>
-    <div class="ray ray-10"></div>
-    <div class="ray ray-11"></div>
-    <div class="ray ray-12"></div>
-  </div>
-  <div class="sun-flash" id="sunFlash"></div>
-</div>
-
-<!-- ===================================================
-     MUSIC TOGGLE BUTTON (appears after loading)
-     =================================================== -->
-<button class="music-toggle-btn" id="musicToggle" title="Toggle Music [M]">
-  <i class="fa-solid fa-volume-xmark" id="musicIcon"></i>
-  <div class="sound-waves">
-    <span></span><span></span><span></span><span></span>
-  </div>
-</button>
-
-<!-- ===================================================
-     MAIN SITE CONTENT
-     =================================================== -->
-<section class="hero-container">
-  
-  <div class="hero-image-wrapper liquid-glass">
-      <img src="assets/images/jonathan.jpeg" alt="Jonathan Awakening Teaser – JoJo Vibes" class="hero-image">
-  </div>
-
-  <h1 class="hero-title">Gods Rank<br>Awakening</h1>
-  <p class="hero-description">
-    In 2120 CE, hell portals rip open—Aditya defies Asura King Kanasura in crimson ruins. Ranks clash, destinies ignite. Dive into the multiverse war.
-  </p>
-
-  <div class="search-wrapper">
-    <div class="glass-search liquid-glass">
-      <i class="fa-solid fa-search" style="opacity: 0.5;"></i>
-      <input type="text" id="searchChapters" placeholder="Search chapters...">
+  <!-- Women Section -->
+  <section class="category-section" id="women" data-category="women">
+    <div class="section-bg women-bg"></div>
+    <div class="section-overlay"></div>
+    
+    <div class="section-header">
+      <h2 class="section-title">Women's Collection</h2>
+      <p class="section-subtitle">Elegant & Graceful</p>
     </div>
+
+    <div class="products-container">
+      <div class="product-card" data-product="Women's Floral Dress" data-price="1299">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/d53f8c/fff?text=Floral+Dress" alt="Floral Dress">
+        </div>
+        <div class="product-info">
+          <h3>Floral Dress</h3>
+          <p class="price">₹1,299</p>
+          <button class="whatsapp-btn">Buy on WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="Women's White Top" data-price="699">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/feb2b2/333?text=White+Top" alt="White Top">
+        </div>
+        <div class="product-info">
+          <h3>White Top</h3>
+          <p class="price">₹699</p>
+          <button class="whatsapp-btn">Buy on WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="Women's Kurti Set" data-price="999">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/9f7aea/fff?text=Kurti+Set" alt="Kurti Set">
+        </div>
+        <div class="product-info">
+          <h3>Kurti Set</h3>
+          <p class="price">₹999</p>
+          <button class="whatsapp-btn">Buy on WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kids Section -->
+  <section class="category-section" id="kids" data-category="kids">
+    <div class="section-bg kids-bg"></div>
+    <div class="section-overlay"></div>
+    
+    <div class="section-header">
+      <h2 class="section-title">Kids Collection</h2>
+      <p class="section-subtitle">Fun & Playful</p>
+    </div>
+
+    <div class="products-container">
+      <div class="product-card" data-product="Kids Cartoon T-Shirt" data-price="399">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/48bb78/fff?text=Cartoon+Tee" alt="Cartoon T-Shirt">
+        </div>
+        <div class="product-info">
+          <h3>Cartoon T-Shirt</h3>
+          <p class="price">₹399</p>
+          <button class="whatsapp-btn">Buy on WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="Kids Party Frock" data-price="899">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/f6e05e/333?text=Party+Frock" alt="Party Frock">
+        </div>
+        <div class="product-info">
+          <h3>Party Frock</h3>
+          <p class="price">₹899</p>
+          <button class="whatsapp-btn">Buy on WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="Kids Shorts Set" data-price="499">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/4fd1c5/333?text=Shorts+Set" alt="Shorts Set">
+        </div>
+        <div class="product-info">
+          <h3>Shorts Set</h3>
+          <p class="price">₹499</p>
+          <button class="whatsapp-btn">Buy on WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2024 Deepak Clothing | Made with ❤️</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">WhatsApp</a>
+    </div>
+  </footer>
+
+  <!-- Category Indicator -->
+  <div class="category-indicator">
+    <span class="indicator-text">Men</span>
   </div>
-</section>
 
-<section class="continue-section" id="continueSection" style="display: none;">
-  <div class="continue-card liquid-glass">
-    <div class="continue-icon">📖</div>
-    <div class="continue-info">
-      <small>Continue Reading</small>
-      <h3 id="continueTitle">Chapter Title</h3>
-    </div>
-    <a href="#" id="continueLink" class="continue-btn">
-      Resume <i class="fa-solid fa-arrow-right"></i>
-    </a>
-  </div>
-</section>
-
-<section class="cast-section">
-  <a href="https://thunder2700c.github.io/TGRA-Character-Introduction/" class="cast-card liquid-glass">
-    <div class="cast-image-wrapper">
-      <img src="assets/images/aditya-cover.jpeg" alt="Main Cast - The Squad" class="cast-image">
-      <div class="cast-overlay"></div>
-    </div>
-    <div class="cast-info">
-      <small class="cast-tag">Explore</small>
-      <h2 class="cast-title">The Main Cast</h2>
-      <p class="cast-subtitle">9 warriors. One destiny.</p>
-      <span class="cast-cta">
-        Tap to meet them <i class="fa-solid fa-arrow-right"></i>
-      </span>
-    </div>
-  </a>
-</section>
-
-<main class="chapters-grid" id="chaptersGrid">
-</main>
-
-<nav class="floating-dock" id="floatingDock">
-  <a href="index.html" class="dock-icon active" title="Home"><i class="fa-solid fa-house"></i></a>
-  <a href="#" class="dock-icon" title="Latest" id="latest-link"><i class="fa-solid fa-bolt"></i></a>
-  <a href="#" class="dock-icon" title="Library" id="library-link"><i class="fa-solid fa-book-open"></i></a>
-  <a href="https://thunder2700c.github.io/TGRA-Character-Introduction/" class="dock-icon" title="Cast"><i class="fa-solid fa-users"></i></a>
-  <a href="https://x.com/Thunder2700c" target="_blank" class="dock-icon" title="Social"><i class="fa-brands fa-x-twitter"></i></a>
-</nav>
-
-<!-- ===================================================
-     SCRIPTS
-     =================================================== -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<script src="scripts/animations.js"></script>
-<script src="scripts/main.js"></script>
-<script src="/loader.js"></script>
-
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
 </body>
-        </html>
+</html>
