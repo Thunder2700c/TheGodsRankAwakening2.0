@@ -3,29 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deepak Clothing Brand</title>
+  <title>Deepak Clothing - Style For Everyone</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">DEEPAK</div>
+    <a href="index.html" class="logo">DEEPAK</a>
     <ul class="nav-links">
       <li><a href="#men">Men</a></li>
       <li><a href="#women">Women</a></li>
       <li><a href="#kids">Kids</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1 class="hero-title">Style For Everyone</h1>
-      <p class="hero-subtitle">Scroll to Explore</p>
+      <h1 class="hero-title">Deepak Clothing</h1>
+      <p class="hero-subtitle">Style For Everyone</p>
       <div class="scroll-indicator">
         <div class="mouse"></div>
+        <p>Scroll to Explore</p>
       </div>
     </div>
   </section>
@@ -41,39 +48,50 @@
     </div>
 
     <div class="products-container">
-      <div class="product-card" data-product="Men's Black T-Shirt" data-price="599">
+      <!-- Product 1 -->
+      <a href="men/black-tshirt.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/333/fff?text=Black+Tee" alt="Black T-Shirt">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
         <div class="product-info">
           <h3>Black T-Shirt</h3>
           <p class="price">₹599</p>
-          <button class="whatsapp-btn">Buy on WhatsApp</button>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card" data-product="Men's Denim Jacket" data-price="1499">
+      <!-- Product 2 -->
+      <a href="men/denim-jacket.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/1a365d/fff?text=Denim+Jacket" alt="Denim Jacket">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
         <div class="product-info">
           <h3>Denim Jacket</h3>
           <p class="price">₹1,499</p>
-          <button class="whatsapp-btn">Buy on WhatsApp</button>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card" data-product="Men's Casual Shirt" data-price="799">
+      <!-- Product 3 -->
+      <a href="men/casual-shirt.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/2d3748/fff?text=Casual+Shirt" alt="Casual Shirt">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
         <div class="product-info">
           <h3>Casual Shirt</h3>
           <p class="price">₹799</p>
-          <button class="whatsapp-btn">Buy on WhatsApp</button>
         </div>
-      </div>
+      </a>
     </div>
+
+    <a href="#" class="view-all-btn">View All Men's →</a>
   </section>
 
   <!-- Women Section -->
@@ -87,39 +105,50 @@
     </div>
 
     <div class="products-container">
-      <div class="product-card" data-product="Women's Floral Dress" data-price="1299">
+      <!-- Product 1 -->
+      <a href="women/floral-dress.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/d53f8c/fff?text=Floral+Dress" alt="Floral Dress">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
         <div class="product-info">
           <h3>Floral Dress</h3>
           <p class="price">₹1,299</p>
-          <button class="whatsapp-btn">Buy on WhatsApp</button>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card" data-product="Women's White Top" data-price="699">
+      <!-- Product 2 -->
+      <a href="women/white-top.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/feb2b2/333?text=White+Top" alt="White Top">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
         <div class="product-info">
           <h3>White Top</h3>
           <p class="price">₹699</p>
-          <button class="whatsapp-btn">Buy on WhatsApp</button>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card" data-product="Women's Kurti Set" data-price="999">
+      <!-- Product 3 -->
+      <a href="women/kurti-set.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/9f7aea/fff?text=Kurti+Set" alt="Kurti Set">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
         <div class="product-info">
           <h3>Kurti Set</h3>
           <p class="price">₹999</p>
-          <button class="whatsapp-btn">Buy on WhatsApp</button>
         </div>
-      </div>
+      </a>
     </div>
+
+    <a href="#" class="view-all-btn">View All Women's →</a>
   </section>
 
   <!-- Kids Section -->
@@ -133,49 +162,80 @@
     </div>
 
     <div class="products-container">
-      <div class="product-card" data-product="Kids Cartoon T-Shirt" data-price="399">
+      <!-- Product 1 -->
+      <a href="kids/cartoon-tshirt.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/48bb78/fff?text=Cartoon+Tee" alt="Cartoon T-Shirt">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
         <div class="product-info">
           <h3>Cartoon T-Shirt</h3>
           <p class="price">₹399</p>
-          <button class="whatsapp-btn">Buy on WhatsApp</button>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card" data-product="Kids Party Frock" data-price="899">
+      <!-- Product 2 -->
+      <a href="kids/party-frock.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/f6e05e/333?text=Party+Frock" alt="Party Frock">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
         <div class="product-info">
           <h3>Party Frock</h3>
           <p class="price">₹899</p>
-          <button class="whatsapp-btn">Buy on WhatsApp</button>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card" data-product="Kids Shorts Set" data-price="499">
+      <!-- Product 3 -->
+      <a href="kids/shorts-set.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/4fd1c5/333?text=Shorts+Set" alt="Shorts Set">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
         <div class="product-info">
           <h3>Shorts Set</h3>
           <p class="price">₹499</p>
-          <button class="whatsapp-btn">Buy on WhatsApp</button>
         </div>
-      </div>
+      </a>
     </div>
+
+    <a href="#" class="view-all-btn">View All Kids →</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <h2>Get In Touch</h2>
+    <p>Have questions? Reach out on WhatsApp!</p>
+    <a href="https://wa.me/91XXXXXXXXXX" class="contact-whatsapp-btn">
+      Chat on WhatsApp
+    </a>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2024 Deepak Clothing | Made with ❤️</p>
-    <div class="social-links">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">WhatsApp</a>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>DEEPAK</h3>
+        <p>Style For Everyone</p>
+      </div>
+      <div class="footer-links">
+        <a href="#men">Men</a>
+        <a href="#women">Women</a>
+        <a href="#kids">Kids</a>
+      </div>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="https://wa.me/91XXXXXXXXXX">WhatsApp</a>
+      </div>
     </div>
+    <p class="copyright">© 2024 Deepak Clothing | Made with ❤️</p>
   </footer>
 
   <!-- Category Indicator -->
