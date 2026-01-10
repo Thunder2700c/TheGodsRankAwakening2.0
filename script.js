@@ -124,6 +124,7 @@ function updateIndicator(section) {
   const colors = {
     men: '#2d3436',
     women: '#8e4585',
+    unisex: '#5a67d8',
     kids: '#38ef7d'
   };
   
