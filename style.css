@@ -670,3 +670,10 @@ body {
     font-size: 12px;
   }
   }
+
+/* Unisex Section - Cool Gradient Wallpaper */
+.unisex-bg {
+  background-color: #5a67d8; /* Fallback color */
+  background-image: url('images/backgrounds/unisex-bg.jpg');
+  filter: brightness(0.6);
+}
