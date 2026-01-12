@@ -4,9 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deepak Clothing - Style For Everyone</title>
+  <meta name="description" content="Deepak Clothing - Premium clothing for Men, Women, Unisex & Kids. Order on WhatsApp.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Deepak Clothing - Style For Everyone">
+  <meta property="og:description" content="Premium clothing for Men, Women, Unisex & Kids.">
+  <meta property="og:image" content="images/backgrounds/hero-bg.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="loader">
+      <span>DEEPAK</span>
+    </div>
+  </div>
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -38,7 +56,9 @@
     </div>
   </section>
 
-  <!-- Men Section -->
+  <!-- ================================
+       MEN SECTION
+       ================================ -->
   <section class="category-section" id="men" data-category="men">
     <div class="section-bg men-bg"></div>
     <div class="section-overlay"></div>
@@ -49,35 +69,35 @@
     </div>
 
     <div class="products-container">
-      <!-- Product 1 -->
-      <a href="men/Standard-Crew-T-shirt.html" class="product-card">
-        <div class="product-image">
-          <img src="../images/men/StandardCrewT-shirt0.jpg" alt="Standard Crew T-Shirt">
-          <div class="product-overlay">
-            <span>View Details</span>
-          </div>
-        </div>
-        <div class="product-info">
-          <h3>Black T-Shirt</h3>
-          <p class="price">₹349</p>
-        </div>
-      </a>
-
-      <!-- Product 2 -->
+      <!-- Product 1 - Varsity Jacket -->
       <a href="men/varsity-jacket.html" class="product-card">
         <div class="product-image">
-          <img src="../images/men/Varsityjacket0.jpg" alt="Varsity Jacket">
+          <img src="images/men/Varsityjacket0.jpg" alt="Varsity Jacket">
           <div class="product-overlay">
             <span>View Details</span>
           </div>
         </div>
         <div class="product-info">
-          <h3>Denim Jacket</h3>
+          <h3>Varsity Jacket</h3>
           <p class="price">₹1,049</p>
         </div>
       </a>
 
-      <!-- Product 3 -->
+      <!-- Product 2 - Standard Crew T-Shirt -->
+      <a href="men/standard-crew-tshirt.html" class="product-card">
+        <div class="product-image">
+          <img src="images/men/StandardCrewT-shirt0.jpg" alt="Standard Crew T-Shirt">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Standard Crew T-Shirt</h3>
+          <p class="price">₹349</p>
+        </div>
+      </a>
+
+      <!-- Product 3 - Casual Shirt -->
       <a href="men/casual-shirt.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/2d3748/fff?text=Casual+Shirt" alt="Casual Shirt">
@@ -95,7 +115,9 @@
     <a href="#" class="view-all-btn">View All Men's →</a>
   </section>
 
-  <!-- Women Section -->
+  <!-- ================================
+       WOMEN SECTION
+       ================================ -->
   <section class="category-section" id="women" data-category="women">
     <div class="section-bg women-bg"></div>
     <div class="section-overlay"></div>
@@ -106,7 +128,7 @@
     </div>
 
     <div class="products-container">
-      <!-- Product 1 -->
+      <!-- Product 1 - Floral Dress -->
       <a href="women/floral-dress.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/d53f8c/fff?text=Floral+Dress" alt="Floral Dress">
@@ -120,7 +142,7 @@
         </div>
       </a>
 
-      <!-- Product 2 -->
+      <!-- Product 2 - White Top -->
       <a href="women/white-top.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/feb2b2/333?text=White+Top" alt="White Top">
@@ -134,7 +156,7 @@
         </div>
       </a>
 
-      <!-- Product 3 -->
+      <!-- Product 3 - Kurti Set -->
       <a href="women/kurti-set.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/9f7aea/fff?text=Kurti+Set" alt="Kurti Set">
@@ -152,64 +174,96 @@
     <a href="#" class="view-all-btn">View All Women's →</a>
   </section>
 
-  <!-- Unisex Section -->
-<section class="category-section" id="unisex" data-category="unisex">
-  <div class="section-bg unisex-bg"></div>
-  <div class="section-overlay"></div>
-  
-  <div class="section-header">
-    <h2 class="section-title">Unisex Collection</h2>
-    <p class="section-subtitle">Style Has No Gender</p>
-  </div>
+  <!-- ================================
+       UNISEX SECTION (5 PRODUCTS)
+       ================================ -->
+  <section class="category-section" id="unisex" data-category="unisex">
+    <div class="section-bg unisex-bg"></div>
+    <div class="section-overlay"></div>
+    
+    <div class="section-header">
+      <h2 class="section-title">Unisex Collection</h2>
+      <p class="section-subtitle">Style Has No Gender</p>
+    </div>
 
-  <div class="products-container">
-    <!-- Product 1 - Hoodie -->
-    <a href="unisex/hoodie.html" class="product-card">
-      <div class="product-image">
-        <img src="images/unisex/hoodie0.jpg" alt="Hoodie">
-        <div class="product-overlay">
-          <span>View Details</span>
+    <div class="products-container">
+      <!-- Product 1 - Oversized Sweatshirt (NEW) -->
+      <a href="unisex/oversized-sweatshirt.html" class="product-card">
+        <div class="product-image">
+          <img src="images/unisex/Oversized0.jpg" alt="Oversized Sweatshirt">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
-      </div>
-      <div class="product-info">
-        <h3>Classic Hoodie</h3>
-        <p class="price">₹949</p>
-      </div>
-    </a>
-
-    <!-- Product 2 - Joggers -->
-    <a href="unisex/joggers.html" class="product-card">
-      <div class="product-image">
-        <img src="https://via.placeholder.com/300x400/667eea/fff?text=Joggers" alt="Joggers">
-        <div class="product-overlay">
-          <span>View Details</span>
+        <div class="product-info">
+          <h3>Oversized Sweatshirt</h3>
+          <p class="price">₹889</p>
         </div>
-      </div>
-      <div class="product-info">
-        <h3>Joggers</h3>
-        <p class="price">₹799</p>
-      </div>
-    </a>
+      </a>
 
-    <!-- Product 3 - Oversized T-Shirt -->
-    <a href="unisex/oversized-tshirt.html" class="product-card">
-      <div class="product-image">
-        <img src="images/unisex/Oversized_T-Shirt0.jpg" alt="Oversized T-Shirt">
-        <div class="product-overlay">
-          <span>View Details</span>
+      <!-- Product 2 - Acid Wash Oversized Tee (NEW) -->
+      <a href="unisex/acid-wash-tee.html" class="product-card">
+        <div class="product-image">
+          <img src="images/unisex/AcidWashOversizedTee0.jpg" alt="Acid Wash Oversized Tee">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
         </div>
-      </div>
-      <div class="product-info">
-        <h3>Oversized T-Shirt</h3>
-        <p class="price">₹555</p>
-      </div>
-    </a>
-  </div>
+        <div class="product-info">
+          <h3>Acid Wash Oversized Tee</h3>
+          <p class="price">₹888</p>
+        </div>
+      </a>
 
-  <a href="#" class="view-all-btn">View All Unisex →</a>
-</section>
+      <!-- Product 3 - Oversized T-Shirt (OLD) -->
+      <a href="unisex/oversized-tshirt.html" class="product-card">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/7c3aed/fff?text=Oversized+Tee" alt="Oversized T-Shirt">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Oversized T-Shirt</h3>
+          <p class="price">₹599</p>
+        </div>
+      </a>
 
-  <!-- Kids Section -->
+      <!-- Product 4 - Classic Hoodie (OLD) -->
+      <a href="unisex/hoodie.html" class="product-card">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/5a67d8/fff?text=Hoodie" alt="Classic Hoodie">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Classic Hoodie</h3>
+          <p class="price">₹999</p>
+        </div>
+      </a>
+
+      <!-- Product 5 - Joggers (OLD) -->
+      <a href="unisex/joggers.html" class="product-card">
+        <div class="product-image">
+          <img src="https://via.placeholder.com/300x400/667eea/fff?text=Joggers" alt="Joggers">
+          <div class="product-overlay">
+            <span>View Details</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>Joggers</h3>
+          <p class="price">₹799</p>
+        </div>
+      </a>
+    </div>
+
+    <a href="#" class="view-all-btn">View All Unisex →</a>
+  </section>
+
+  <!-- ================================
+       KIDS SECTION
+       ================================ -->
   <section class="category-section" id="kids" data-category="kids">
     <div class="section-bg kids-bg"></div>
     <div class="section-overlay"></div>
@@ -220,7 +274,7 @@
     </div>
 
     <div class="products-container">
-      <!-- Product 1 -->
+      <!-- Product 1 - Cartoon T-Shirt -->
       <a href="kids/cartoon-tshirt.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/48bb78/fff?text=Cartoon+Tee" alt="Cartoon T-Shirt">
@@ -234,7 +288,7 @@
         </div>
       </a>
 
-      <!-- Product 2 -->
+      <!-- Product 2 - Party Frock -->
       <a href="kids/party-frock.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/f6e05e/333?text=Party+Frock" alt="Party Frock">
@@ -248,7 +302,7 @@
         </div>
       </a>
 
-      <!-- Product 3 -->
+      <!-- Product 3 - Shorts Set -->
       <a href="kids/shorts-set.html" class="product-card">
         <div class="product-image">
           <img src="https://via.placeholder.com/300x400/4fd1c5/333?text=Shorts+Set" alt="Shorts Set">
@@ -266,16 +320,23 @@
     <a href="#" class="view-all-btn">View All Kids →</a>
   </section>
 
-  <!-- Contact Section -->
+  <!-- ================================
+       CONTACT SECTION
+       ================================ -->
   <section class="contact-section" id="contact">
     <h2>Get In Touch</h2>
     <p>Have questions? Reach out on WhatsApp!</p>
-    <a href="https://wa.me/91XXXXXXXXXX" class="contact-whatsapp-btn">
+    <a href="https://wa.me/919914146170" class="contact-whatsapp-btn" target="_blank">
+      <svg viewBox="0 0 24 24" width="24" height="24" style="margin-right: 10px;">
+        <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
       Chat on WhatsApp
     </a>
   </section>
 
-  <!-- Footer -->
+  <!-- ================================
+       FOOTER
+       ================================ -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-brand">
@@ -285,12 +346,13 @@
       <div class="footer-links">
         <a href="#men">Men</a>
         <a href="#women">Women</a>
+        <a href="#unisex">Unisex</a>
         <a href="#kids">Kids</a>
       </div>
       <div class="footer-social">
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="https://wa.me/91XXXXXXXXXX">WhatsApp</a>
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="https://wa.me/919914146170" target="_blank">WhatsApp</a>
       </div>
     </div>
     <p class="copyright">© 2024 Deepak Clothing | Made with ❤️</p>
@@ -301,7 +363,12 @@
     <span class="indicator-text">Men</span>
   </div>
 
-  <!-- Scripts -->
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">↑</button>
+
+  <!-- ================================
+       SCRIPTS
+       ================================ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
